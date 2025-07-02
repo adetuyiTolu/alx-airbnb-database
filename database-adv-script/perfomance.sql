@@ -2,14 +2,16 @@ SELECT *
 FROM bookings b
 LEFT JOIN users u ON b.user_id = u.user_id
 LEFT JOIN properties p ON b.property_id = p.property_id
-LEFT JOIN payments pay ON pay.booking_id = b.booking_id;
+LEFT JOIN payments pay ON pay.booking_id = b.booking_id
+WHERE b.status = 'confirmed' AND p.location = 'Nigeria';
 
 -- Use the EXPLAIN keyword to understand the query better
 EXPLAIN SELECT *
 FROM bookings b
 LEFT JOIN users u ON b.user_id = u.user_id
 LEFT JOIN properties p ON b.property_id = p.property_id
-LEFT JOIN payments pay ON pay.booking_id = b.booking_id;
+LEFT JOIN payments pay ON pay.booking_id = b.booking_id
+WHERE b.status = 'confirmed' AND p.location = 'Nigeria';
 
 
 -- Refactored/Optimized Query: Retrieve bookings for a specific period (e.g., last 90 days)
@@ -42,5 +44,6 @@ JOIN
 JOIN
     payments pay ON b.booking_id = pay.booking_id
 WHERE
-    b.start_date >= CURDATE() - INTERVAL 90 DAY; 
+    b.start_date >= CURDATE() - INTERVAL 90 DAY
+    AND b.status = 'confirmed' AND p.location = 'Nigeria';
 
