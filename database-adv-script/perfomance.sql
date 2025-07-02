@@ -18,7 +18,6 @@ SELECT
     b.total_price AS booking_total_price,
     b.status AS booking_status,
     u.user_id AS guest_user_id,
-    u.username AS guest_username,
     u.email AS guest_email,
     p.property_id,
     p.name AS property_name,
@@ -26,8 +25,7 @@ SELECT
     p.price_per_night,
     pay.payment_id,
     pay.amount AS payment_amount,
-    pay.payment_date,
-    pay.status AS payment_status
+    pay.payment_date
 FROM
     bookings b
 JOIN
