@@ -55,7 +55,7 @@ It's a performance bottleneck.
 CREATE INDEX idx_bookings_start_date ON bookings_partitioned(start_date);
 ```
 
-### ✅ Add Composite Index (if filtering by multiple columns)
+### ✅ Add Composite Index 
 ```sql
 CREATE INDEX idx_booking_user_date ON bookings_partitioned(user_id, start_date);
 ```
