@@ -4,6 +4,13 @@ LEFT JOIN users u ON b.user_id = u.user_id
 LEFT JOIN properties p ON b.property_id = p.property_id
 LEFT JOIN payments pay ON pay.booking_id = b.booking_id;
 
+-- Use the EXPLAIN keyword to understand the query better
+EXPLAIN SELECT *
+FROM bookings b
+LEFT JOIN users u ON b.user_id = u.user_id
+LEFT JOIN properties p ON b.property_id = p.property_id
+LEFT JOIN payments pay ON pay.booking_id = b.booking_id;
+
 
 -- Refactored/Optimized Query: Retrieve bookings for a specific period (e.g., last 90 days)
 -- This query is optimized by applying a filter on 'b.start_date'
