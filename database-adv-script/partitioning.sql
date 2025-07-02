@@ -6,7 +6,7 @@ CREATE TABLE bookings_partitioned (
     end_date DATE,
     total_price DECIMAL(10,2),
     status VARCHAR(50),
-    PRIMARY KEY (booking_id)
+    PRIMARY KEY (booking_id, start_date)
 )
 PARTITION BY RANGE COLUMNS(start_date) (
     PARTITION p2022 VALUES LESS THAN ('2023-01-01'),
